@@ -48,7 +48,7 @@ export default function InstitutionalNavbar({ onOpenOracle }: { onOpenOracle: ()
             </div>
           </div>
           <div>
-            <span className="font-display font-bold text-white tracking-wider text-lg block">APEX<span className="text-emerald-400">.QUANT</span></span>
+            <span className="font-display font-bold text-white tracking-wider text-lg block">REX<span className="text-emerald-400">.FX</span></span>
             <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block -mt-1">Workstation v2035</span>
           </div>
         </a>
