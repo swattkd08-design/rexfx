@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+  
+  --color-space-black: #050816;
+  --color-midnight-navy: #0B1120;
+  --color-emerald-trading: #00FFAA;
+  --color-electric-blue: #00C8FF;
+  --color-gold-accent: #FFC857;
+}
+
+:root {
+  --clr: #00FFAA;
+}
+
+.dark {
+  --clr: #00FFAA;
+}
+
+body {
+  background-color: #050816;
+  color: #F8FAFC;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #00FFAA;
+  selection-color: #050816;
+}
+
+/* Custom Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: #0B1120;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 170, 0.6);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(11, 17, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(11, 17, 32, 0.4) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neon-border-emerald {
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.15), inset 0 0 15px rgba(0, 255, 170, 0.05);
+  border-color: rgba(0, 255, 170, 0.4);
+}
+
+.neon-border-blue {
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.15), inset 0 0 15px rgba(0, 200, 255, 0.05);
+  border-color: rgba(0, 200, 255, 0.4);
+}
+
+/* ====================================================
+   3D ISOMETRIC QUANTUM LOADER (#loader-3) STYLING
+==================================================== */
+
+.loader {
+  --duration: 3s;
+  --primary: #00FFAA;
+  --primary-light: #00C8FF;
+  --primary-rgba: rgba(0, 255, 170, 0);
+  width: 200px;
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .loader {
+    zoom: 0.75;
+  }
+}
+
+.loader .box {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+}
+
+.loader .box > div {
+  --translateZ: calc(var(--z) * 16px);
+  --rotateY: calc(var(--rotateY, 0) * 1deg);
+  --rotateX: calc(var(--rotateX, 0) * 1deg);
+  background: var(--primary);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: rotateY(var(--rotateY)) rotateX(var(--rotateX)) translateZ(var(--translateZ));
+  border: 1px solid rgba(5, 8, 22, 0.8);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.loader .box > div:nth-child(1) {
+  --z: 1;
+  background: #00FFAA;
+}
+.loader .box > div:nth-child(2) {
+  --rotateY: 90;
+  --z: 1;
+  background: #00d68f;
+}
+.loader .box > div:nth-child(3) {
+  --rotateY: 180;
+  --z: 1;
+  background: #00b377;
+}
+.loader .box > div:nth-child(4) {
+  --rotateX: 90;
+  --z: 1;
+  background: #00C8FF;
+}
+
+.loader .box0 {
+  --x: -48px;
+  --y: -48px;
+  left: 58px;
+  top: 108px;
+  animation: box-move0 var(--duration) infinite;
+}
+.loader .box0 > div {
+  animation: box-scale0 var(--duration) infinite;
+}
+
+.loader .box1 {
+  --x: -48px;
+  --y: 0px;
+  left: 25px;
+  top: 120px;
+  animation: box-move1 var(--duration) infinite;
+}
+.loader .box1 > div {
+  animation: box-scale1 var(--duration) infinite;
+}
+
+.loader .box2 {
+  --x: -48px;
+  --y: 48px;
+  left: -8px;
+  top: 132px;
+  animation: box-move2 var(--duration) infinite;
+}
+.loader .box2 > div {
+  animation: box-scale2 var(--duration) infinite;
+}
+
+.loader .box3 {
+  --x: 0px;
+  --y: -48px;
+  left: 91px;
+  top: 120px;
+  animation: box-move3 var(--duration) infinite;
+}
+.loader .box3 > div {
+  animation: box-scale3 var(--duration) infinite;
+}
+
+.loader .box4 {
+  --x: 0px;
+  --y: 0px;
+  left: 58px;
+  top: 132px;
+  animation: box-move4 var(--duration) infinite;
+}
+.loader .box4 > div {
+  animation: box-scale4 var(--duration) infinite;
+}
+
+.loader .box5 {
+  --x: 0px;
+  --y: 48px;
+  left: 25px;
+  top: 144px;
+  animation: box-move5 var(--duration) infinite;
+}
+.loader .box5 > div {
+  animation: box-scale5 var(--duration) infinite;
+}
+
+.loader .box6 {
+  --x: 48px;
+  --y: -48px;
+  left: 124px;
+  top: 132px;
+  animation: box-move6 var(--duration) infinite;
+}
+.loader .box6 > div {
+  animation: box-scale6 var(--duration) infinite;
+}
+
+.loader .box7 {
+  --x: 48px;
+  --y: 0px;
+  left: 91px;
+  top: 144px;
+  animation: box-move7 var(--duration) infinite;
+}
+.loader .box7 > div {
+  animation: box-scale7 var(--duration) infinite;
+}
+
+.loader .ground {
+  position: absolute;
+  left: -30px;
+  bottom: -10px;
+  transform-style: preserve-3d;
+  transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg);
+}
+
+.loader .ground > div {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 255, 170, 0.25) 0%, rgba(5, 8, 22, 0) 70%);
+  border: 1px dashed rgba(0, 255, 170, 0.3);
+  transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
+  animation: ground var(--duration) infinite;
+}
+
+/* KEYFRAMES */
+
+@keyframes box-move0 {
+  12% {
+    transform: translate(var(--x), var(--y));
+  }
+  25%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale0 {
+  6% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  14%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move1 {
+  16% {
+    transform: translate(var(--x), var(--y));
+  }
+  29%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale1 {
+  10% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  18%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move2 {
+  20% {
+    transform: translate(var(--x), var(--y));
+  }
+  33%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale2 {
+  14% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  22%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move3 {
+  24% {
+    transform: translate(var(--x), var(--y));
+  }
+  37%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale3 {
+  18% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  26%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move4 {
+  28% {
+    transform: translate(var(--x), var(--y));
+  }
+  41%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale4 {
+  22% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  30%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move5 {
+  32% {
+    transform: translate(var(--x), var(--y));
+  }
+  45%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale5 {
+  26% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  34%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move6 {
+  36% {
+    transform: translate(var(--x), var(--y));
+  }
+  49%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale6 {
+  30% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  38%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes box-move7 {
+  40% {
+    transform: translate(var(--x), var(--y));
+  }
+  53%, 52% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(0, -32px);
+  }
+  90%, 100% {
+    transform: translate(0, 188px);
+  }
+}
+
+@keyframes box-scale7 {
+  34% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+  }
+  42%, 100% {
+    transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+  }
+}
+
+@keyframes ground {
+  0%, 65% {
+    transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
+  }
+  75%, 90% {
+    transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(1);
+  }
+  100% {
+    transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
+  }
+}
+
+@keyframes ground-shine {
+  0%, 70% {
+    opacity: 0;
+  }
+  75%, 87% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mask {
+  0%, 65% {
+    opacity: 0;
+  }
+  66%, 100% {
+    opacity: 1;
+  }
+}
