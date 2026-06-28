@@ -1,6 +1,5 @@
-import React from 'react';
-import StellarCardGallerySingle from "./3d-image-gallery";
+import GlassTunnel3D from "@/components/ui/liquid-glass-boxes";
 
 export default function DemoOne() {
-  return <StellarCardGallerySingle />;
+  return <GlassTunnel3D />;
 }

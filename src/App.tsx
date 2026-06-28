@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InstitutionalNavbar from './components/InstitutionalNavbar';
-import TradingCanvas3D from './components/TradingCanvas3D';
+import GlassTunnel3D from './components/ui/liquid-glass-boxes';
 import InteractiveChart from './components/InteractiveChart';
 import PortfolioDashboard from './components/PortfolioDashboard';
 import StrategyShowcase from './components/StrategyShowcase';
@@ -8,11 +8,14 @@ import AboutAndContact from './components/AboutAndContact';
 import AIOracleModal from './components/AIOracleModal';
 import GlobalTubesCursor from './components/GlobalTubesCursor';
 import StellarCardGallerySingle from './components/ui/3d-image-gallery';
+import WebsiteLoadingScreen from './components/WebsiteLoadingScreen';
+import MarketTimeTicker from './components/MarketTimeTicker';
 import { StrategyCard } from './types';
 import { sfx } from './utils/audio';
 import { ShieldCheck, Cpu, TrendingUp, Sparkles, Activity, Layers, ArrowDownRight, Zap, Target, ExternalLink, Check, X } from 'lucide-react';
 
 export default function App() {
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [oracleOpen, setOracleOpen] = useState(false);
   const [selectedSymbol, setSelectedSymbol] = useState("BTC/USDT");
   const [activeStrategyModal, setActiveStrategyModal] = useState<StrategyCard | null>(null);
@@ -28,12 +31,17 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#050816] text-[#F8FAFC] relative selection:bg-emerald-400 selection:text-black overflow-x-hidden font-sans">
       
+      {/* 0. Full Website Initial Loading Screen */}
+      {isInitialLoading && (
+        <WebsiteLoadingScreen onLoaded={() => setIsInitialLoading(false)} />
+      )}
+
       {/* 1. Global Navigation Bar */}
       <InstitutionalNavbar onOpenOracle={() => setOracleOpen(true)} />
 
-      {/* 2. Real-Time WebGL 3D Background Workstation Canvas (Rotating Coins, Crystals, Particles) */}
-      <div className="fixed inset-0 z-0 opacity-80 pointer-events-none">
-        <TradingCanvas3D />
+      {/* 2. Liquid Glass Tunnel 3D Background over whole website */}
+      <div className="fixed inset-0 z-0 opacity-85 pointer-events-none">
+        <GlassTunnel3D />
       </div>
 
       {/* 2.5 Global Three.js Volumetric Raymarched Tubes Cursor over whole website */}

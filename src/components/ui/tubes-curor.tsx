@@ -12,6 +12,7 @@ export default function TubesCursor() {
 
   useEffect(() => {
     const initTimer = setTimeout(() => {
+      // @ts-ignore
       import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
         .then(module => {
           const TubesCursorLib = module.default;
