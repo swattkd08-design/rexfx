@@ -44,7 +44,7 @@ export default function InstitutionalNavbar({ onOpenOracle }: { onOpenOracle: ()
         <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 p-[1px] shadow-[0_0_20px_rgba(0,255,170,0.3)]">
             <div className="w-full h-full bg-[#050816] rounded-[11px] flex items-center justify-center text-emerald-400 font-display font-extrabold text-xl group-hover:bg-transparent group-hover:text-[#050816] transition-colors">
-              A
+              R
             </div>
           </div>
           <div>

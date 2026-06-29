@@ -98,6 +98,125 @@ Keep responses punchy, concise (around 150-250 words maximum), and formatted bea
     }
   });
 
+  // Gemini AI Strategy Backtest Simulation Endpoint
+  app.post("/api/backtest", async (req, res) => {
+    const { strategyTitle = "Proprietary Alpha Strategy", strategyCategory = "Quantitative", winRate = "84.2%", sharpeRatio = "4.10", description = "" } = req.body;
+    const client = getAIClient();
+
+    const getFallbackData = () => {
+      const baseReturn = parseFloat(winRate) > 80 ? 148.5 : 92.4;
+      return {
+        success: true,
+        isSimulated: true,
+        result: {
+          strategyTitle,
+          period: "Jan 2024 - Jan 2025 (12 Months)",
+          initialCapitalUsd: 100000,
+          finalCapitalUsd: Math.round(100000 * (1 + baseReturn / 100)),
+          totalReturnPct: `+${baseReturn}%`,
+          maxDrawdownPct: "-3.42%",
+          winRatePct: winRate || "82.5%",
+          sharpeRatio: sharpeRatio || "4.12",
+          sortinoRatio: "7.45",
+          profitFactor: "3.98",
+          totalTradesExecuted: 1342,
+          alphaVsBtcPct: `+${(baseReturn - 78.2).toFixed(1)}%`,
+          executiveSummary: `### Quantitative Backtest Audit // ${strategyTitle}\n\n**Performance Attribution:**\nThe algorithmic engine navigated 2024 macro shifts with zero directional bias. During the sharp Q3 unwinding event, delta-neutral funding rate arbitrage captured peak annualized yield while spot gamma hedging suppressed drawdown to -3.42%.\n\n**Key Regime Observations:**\n* **High Volatility Expansion (Q1/Q4):** Captured 84% of upside momentum via high-frequency orderflow imbalance sweeps.\n* **Choppy Consolidation (Q2/Q3):** Compounded steady basis yield while retail long positions suffered heavy funding decay.\n* **Execution Quality:** Average slippage remained under 0.8 bps across $42M simulated volume.\n\n*(Note: Configure GEMINI_API_KEY in AI Studio Settings for live LLM dynamic backtest simulations.)*`,
+          monthlyPerformance: [
+            { month: "Jan 24", equity: 104500, btcBenchmark: 102100, returnPct: "+4.5%" },
+            { month: "Feb 24", equity: 114200, btcBenchmark: 110500, returnPct: "+9.3%" },
+            { month: "Mar 24", equity: 125800, btcBenchmark: 124000, returnPct: "+10.2%" },
+            { month: "Apr 24", equity: 129400, btcBenchmark: 116000, returnPct: "+2.9%" },
+            { month: "May 24", equity: 138100, btcBenchmark: 125000, returnPct: "+6.7%" },
+            { month: "Jun 24", equity: 145200, btcBenchmark: 118000, returnPct: "+5.1%" },
+            { month: "Jul 24", equity: 154800, btcBenchmark: 130000, returnPct: "+6.6%" },
+            { month: "Aug 24", equity: 161200, btcBenchmark: 121000, returnPct: "+4.1%" },
+            { month: "Sep 24", equity: 172500, btcBenchmark: 135000, returnPct: "+7.0%" },
+            { month: "Oct 24", equity: 191000, btcBenchmark: 154000, returnPct: "+10.7%" },
+            { month: "Nov 24", equity: 224000, btcBenchmark: 182000, returnPct: "+17.3%" },
+            { month: "Dec 24", equity: Math.round(100000 * (1 + baseReturn / 100)), btcBenchmark: 178200, returnPct: "+11.0%" }
+          ],
+          simulatedRecentTrades: [
+            { timestamp: "2025-01-14 14:22 UTC", pair: "BTC/USDT Perp", type: "LONG BASIS ARB", entry: "$96,420", exit: "$98,110", pnlUsd: "+$4,820", roi: "+14.2%" },
+            { timestamp: "2025-01-13 09:15 UTC", pair: "SOL/USDT Perp", type: "SHORT LIQ SWEEP", entry: "$212.40", exit: "$204.80", pnlUsd: "+$3,150", roi: "+22.4%" },
+            { timestamp: "2025-01-12 18:40 UTC", pair: "ETH/USDT Perp", type: "DELTA HEDGE", entry: "$3,380", exit: "$3,410", pnlUsd: "+$1,220", roi: "+8.5%" },
+            { timestamp: "2025-01-11 04:10 UTC", pair: "SUI/USDT Perp", type: "MOMENTUM LONG", entry: "$3.45", exit: "$3.82", pnlUsd: "+$6,400", roi: "+34.0%" },
+            { timestamp: "2025-01-10 11:30 UTC", pair: "BTC/USDT Perp", type: "LONG BASIS ARB", entry: "$94,100", exit: "$93,800", pnlUsd: "-$850", roi: "-2.1%" }
+          ]
+        }
+      };
+    };
+
+    if (!client) {
+      await new Promise(r => setTimeout(r, 1000));
+      return res.json(getFallbackData());
+    }
+
+    try {
+      const prompt = `Run a synthetic 12-month quantitative trading backtest simulation for this crypto strategy:
+Title: ${strategyTitle}
+Category: ${strategyCategory}
+Claimed Win Rate: ${winRate}
+Claimed Sharpe: ${sharpeRatio}
+Description: ${description}
+
+Generate a realistic historical performance simulation assuming an initial capital of $100,000 USD across Jan 2024 to Jan 2025.
+Return ONLY valid JSON matching this exact structure:
+{
+  "strategyTitle": "${strategyTitle}",
+  "period": "Jan 2024 - Jan 2025 (12 Months)",
+  "initialCapitalUsd": 100000,
+  "finalCapitalUsd": 245000,
+  "totalReturnPct": "+145.0%",
+  "maxDrawdownPct": "-3.8%",
+  "winRatePct": "${winRate}",
+  "sharpeRatio": "${sharpeRatio}",
+  "sortinoRatio": "7.20",
+  "profitFactor": "3.90",
+  "totalTradesExecuted": 1280,
+  "alphaVsBtcPct": "+66.8%",
+  "executiveSummary": "### Quantitative Backtest Audit // ${strategyTitle}\\n\\n**Performance Attribution:**\\nThe engine captured alpha during volatility expansion...",
+  "monthlyPerformance": [
+    { "month": "Jan 24", "equity": 104500, "btcBenchmark": 102000, "returnPct": "+4.5%" }
+  ],
+  "simulatedRecentTrades": [
+    { "timestamp": "2025-01-14 14:22 UTC", "pair": "BTC/USDT Perp", "type": "LONG BASIS ARB", "entry": "$96,420", "exit": "$98,110", "pnlUsd": "+$4,820", "roi": "+14.2%" }
+  ]
+}
+Ensure monthlyPerformance has exactly 12 items (Jan 24 to Dec 24) with rising equity curve starting at 100000. Ensure simulatedRecentTrades has 5 items.`;
+
+      const response = await client.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+        config: {
+          responseMimeType: "application/json",
+          temperature: 0.5
+        }
+      });
+
+      let parsed = null;
+      try {
+        const text = response.text || "";
+        parsed = JSON.parse(text);
+      } catch (e) {
+        // fallback
+      }
+
+      if (!parsed || !parsed.monthlyPerformance) {
+        return res.json(getFallbackData());
+      }
+
+      res.json({
+        success: true,
+        isSimulated: false,
+        result: parsed
+      });
+    } catch (err) {
+      console.error("Gemini Backtest Error:", err);
+      res.json(getFallbackData());
+    }
+  });
+
   // Vite middleware setup
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

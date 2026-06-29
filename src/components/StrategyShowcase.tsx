@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QUANTUM_STRATEGIES } from '../data/mockData';
 import { StrategyCard } from '../types';
 import { sfx } from '../utils/audio';
-import { Zap, Target, Activity, ShieldCheck, TrendingUp, Cpu, ArrowUpRight } from 'lucide-react';
+import { Zap, Target, Activity, ShieldCheck, TrendingUp, Cpu, ArrowUpRight, Play } from 'lucide-react';
+import StrategyBacktestModal from './StrategyBacktestModal';
 
 export default function StrategyShowcase({ onSelectStrategy }: { onSelectStrategy?: (s: StrategyCard) => void }) {
+  const [backtestStrategy, setBacktestStrategy] = useState<StrategyCard | null>(null);
   const getIcon = (name: string) => {
     switch (name) {
       case "Zap": return <Zap className="w-6 h-6 text-emerald-400" />;
@@ -85,18 +87,34 @@ export default function StrategyShowcase({ onSelectStrategy }: { onSelectStrateg
                 ))}
               </div>
 
-              <button
-                onClick={() => { sfx.playClick(); onSelectStrategy && onSelectStrategy(st); }}
-                className="w-full py-3.5 rounded-xl bg-[#050816] hover:bg-emerald-400 text-slate-300 hover:text-[#050816] border border-slate-700 hover:border-emerald-400 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer group/btn"
-              >
-                <span>INSPECT STRATEGY SPECS</span>
-                <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-2.5">
+                <button
+                  onClick={() => { sfx.playClick(); onSelectStrategy && onSelectStrategy(st); }}
+                  className="flex-1 py-3 px-2 rounded-xl bg-[#050816] hover:bg-slate-800 text-slate-300 border border-slate-700 font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer group/btn"
+                >
+                  <span>SPECS</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </button>
+
+                <button
+                  onClick={() => { sfx.playClick(); setBacktestStrategy(st); }}
+                  className="flex-[2] py-3 px-3 rounded-xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 hover:from-emerald-400 hover:to-cyan-400 text-emerald-300 hover:text-[#050816] border border-emerald-500/40 hover:border-emerald-400 font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.1)] cursor-pointer group/bt"
+                >
+                  <Play className="w-3.5 h-3.5 fill-current group-hover/bt:scale-110 transition-transform" />
+                  <span>RUN AI BACKTEST</span>
+                </button>
+              </div>
             </div>
 
           </div>
         ))}
       </div>
+
+      <StrategyBacktestModal
+        isOpen={!!backtestStrategy}
+        strategy={backtestStrategy}
+        onClose={() => setBacktestStrategy(null)}
+      />
     </section>
   );
 }
