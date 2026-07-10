@@ -165,9 +165,9 @@ export default function StrategyBacktestModal({ isOpen, onClose, strategy }: Pro
                 </div>
 
                 <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4">
-                  <span className="text-[10px] text-slate-500 block">ALPHA VS BTC</span>
+                  <span className="text-[10px] text-slate-500 block">ALPHA VS DXY</span>
                   <span className="text-xl font-bold text-cyan-400">{data.alphaVsBtcPct}</span>
-                  <span className="text-[10px] text-slate-400 block mt-1">Outperformed Benchmark</span>
+                  <span className="text-[10px] text-slate-400 block mt-1">Outperformed USD Index</span>
                 </div>
 
                 <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4">
@@ -209,7 +209,7 @@ export default function StrategyBacktestModal({ isOpen, onClose, strategy }: Pro
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded bg-slate-600/80" />
-                      <span className="text-slate-400">BTC Benchmark</span>
+                      <span className="text-slate-400">DXY Benchmark</span>
                     </div>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function StrategyBacktestModal({ isOpen, onClose, strategy }: Pro
                         contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '12px', color: '#f8fafc', fontSize: '12px', fontFamily: 'monospace' }}
                         formatter={(val: any) => [`$${Number(val).toLocaleString()}`, '']}
                       />
-                      <Area type="monotone" dataKey="btcBenchmark" name="BTC Benchmark" stroke="#64748b" strokeWidth={1.5} fillOpacity={1} fill="url(#btcGrad)" />
+                      <Area type="monotone" dataKey="btcBenchmark" name="DXY Benchmark" stroke="#64748b" strokeWidth={1.5} fillOpacity={1} fill="url(#btcGrad)" />
                       <Area type="monotone" dataKey="equity" name="Strategy Equity" stroke="#10b981" strokeWidth={2.5} fillOpacity={1} fill="url(#stratGrad)" />
                     </AreaChart>
                   </ResponsiveContainer>

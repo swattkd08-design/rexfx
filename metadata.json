@@ -1,6 +1,6 @@
 {
-  "name": "Apex Crypto Portfolio & Workstation",
-  "description": "Futuristic 3D institutional crypto trader portfolio and live market terminal featuring WebGL visualizers, interactive TradingView charts, alpha strategy showcase, and Gemini AI market oracle.",
+  "name": "Vidollar - World-Class Forex Trader Portfolio",
+  "description": "Futuristic institutional Forex and Gold spot trader portfolio featuring WebGL 3D visualizers, live market tickers, Smart Money Concepts (SMC) backtests, and a Gemini AI-powered market advisor.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

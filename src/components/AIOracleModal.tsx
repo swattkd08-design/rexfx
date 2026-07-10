@@ -10,10 +10,10 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
   if (!isOpen) return null;
 
   const presets = [
-    "Analyze Bitcoin derivatives open interest & liquidation cluster risks.",
-    "Recommend an asymmetric DeFi yield strategy for $5M stablecoin allocation.",
-    "Assess current Altcoin season rotation strength vs BTC Dominance.",
-    "Map optimal smart money concept orderblock entries for Solana."
+    "Analyze Gold (XAU/USD) institutional orderblocks near $2,350.",
+    "Explain London session Judas swings and typical sweep target ranges.",
+    "Map optimal risk sizing metrics before high-impact FOMC rate hikes.",
+    "Assess USD/JPY market structure shift (CHoCH) on the 4H timeframe."
   ];
 
   const handleAsk = async (textToSend?: string) => {
@@ -33,27 +33,27 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
       setResponse(json.analysis || "Unable to retrieve oracle synthesis.");
       sfx.playSuccess();
     } catch (err) {
-      setResponse("**Oracle Comm-Link Error:** Unable to reach AEX Quantum Sentinel API. Check connection.");
+      setResponse("**Oracle Comm-Link Error:** Unable to reach Vidollar AI Advisory API. Check connection.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050816]/80 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="w-full max-w-3xl glass-panel bg-[#0B1120] rounded-3xl border border-emerald-500/40 shadow-[0_0_80px_rgba(0,255,170,0.15)] overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="w-full max-w-3xl glass-panel bg-[#0B1120] rounded-3xl border border-[#D4AF37]/40 shadow-[0_0_80px_rgba(212,175,55,0.15)] overflow-hidden flex flex-col max-h-[90vh]">
         
         {/* Header */}
-        <div className="p-6 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent border-b border-slate-800 flex items-center justify-between">
+        <div className="p-6 bg-gradient-to-r from-[#D4AF37]/10 via-emerald-500/10 to-transparent border-b border-slate-900 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 shadow-[0_0_20px_rgba(0,255,170,0.3)]">
+            <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 border border-[#D4AF37]/50 flex items-center justify-center text-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.3)]">
               <Cpu className="w-6 h-6 animate-pulse" />
             </div>
             <div>
               <h3 className="text-lg font-display font-bold text-white flex items-center gap-2">
-                AEX QUANTUM MARKET ORACLE <Sparkles className="w-4 h-4 text-amber-400" />
+                VIDOLLAR AI MARKET ORACLE <Sparkles className="w-4 h-4 text-emerald-400" />
               </h3>
-              <p className="text-xs font-mono text-emerald-400/80">GEMINI 2.5 INSTITUTIONAL QUANT SENTINEL</p>
+              <p className="text-xs font-mono text-emerald-400">GEMINI 2.5 FOREX QUANT INTEL SENTINEL</p>
             </div>
           </div>
           <button
@@ -69,16 +69,16 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
           
           {/* Quick Query Presets */}
           <div>
-            <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-3">⚡ INSTITUTIONAL ADVISORY QUERIES</span>
+            <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-3">⚡ SECURE ADVISORY CHANNELS</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {presets.map((p, i) => (
                 <button
                   key={i}
                   onClick={() => { setPrompt(p); handleAsk(p); }}
-                  className="text-left p-3 rounded-xl bg-slate-900/80 hover:bg-emerald-500/10 border border-slate-800 hover:border-emerald-500/40 text-xs text-slate-300 hover:text-emerald-300 transition-all cursor-pointer flex items-center justify-between group"
+                  className="text-left p-3 rounded-xl bg-slate-900/80 hover:bg-[#D4AF37]/10 border border-slate-850 hover:border-[#D4AF37]/40 text-xs text-slate-300 hover:text-[#D4AF37] transition-all cursor-pointer flex items-center justify-between group"
                 >
                   <span className="line-clamp-2">{p}</span>
-                  <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400 shrink-0 ml-2" />
+                  <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D4AF37] shrink-0 ml-2" />
                 </button>
               ))}
             </div>
@@ -86,19 +86,19 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
 
           {/* AI Response Output Panel */}
           {loading && (
-            <div className="p-8 rounded-2xl bg-[#050816] border border-emerald-500/30 flex flex-col items-center justify-center text-center space-y-4">
-              <Loader2 className="w-10 h-10 text-emerald-400 animate-spin" />
+            <div className="p-8 rounded-2xl bg-[#050816] border border-[#D4AF37]/30 flex flex-col items-center justify-center text-center space-y-4">
+              <Loader2 className="w-10 h-10 text-[#D4AF37] animate-spin" />
               <div>
-                <p className="text-sm font-mono font-bold text-white animate-pulse">INGESTING ORDERFLOW & DERIVATIVES GAMMA EXPOSURE...</p>
-                <p className="text-xs font-mono text-slate-500 mt-1">Cross-referencing CME Futures Open Interest & Funding Arbitrage</p>
+                <p className="text-sm font-mono font-bold text-white animate-pulse">MAP-REDUCING LIQUIDITY POOLS & IMMITIGABLE GAPS...</p>
+                <p className="text-xs font-mono text-slate-500 mt-1">Parsing Interbank Feed, Premium pricing indices, and High Impact events</p>
               </div>
             </div>
           )}
 
           {response && !loading && (
-            <div className="p-6 rounded-2xl bg-[#050816] border border-emerald-500/40 text-slate-200 text-sm leading-relaxed relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-500/20 text-emerald-400 font-mono text-[10px] rounded-bl-xl border-l border-b border-emerald-500/40">
-                SYNTHESIS COMPLETE
+            <div className="p-6 rounded-2xl bg-[#050816] border border-[#D4AF37]/30 text-slate-200 text-sm leading-relaxed relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-[#D4AF37]/15 text-[#D4AF37] font-mono text-[10px] rounded-bl-xl border-l border-b border-[#D4AF37]/30">
+                ORACLE BLUEPRINT DESCRIPT
               </div>
               <div className="prose prose-invert max-w-none font-sans whitespace-pre-line">
                 {response}
@@ -108,7 +108,7 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
         </div>
 
         {/* Input Bar Footer */}
-        <div className="p-4 bg-[#050816] border-t border-slate-800">
+        <div className="p-4 bg-[#050816] border-t border-slate-900">
           <form
             onSubmit={(e) => { e.preventDefault(); handleAsk(); }}
             className="flex items-center gap-3"
@@ -117,15 +117,15 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
               type="text"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Ask Oracle about market structure, liquidity pockets, or portfolio hedging..."
-              className="flex-1 bg-slate-900 px-4 py-3 rounded-xl border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors font-sans"
+              placeholder="Query about orderblocks, liquidity clusters, or session timing rules..."
+              className="flex-1 bg-slate-900 px-4 py-3 rounded-xl border border-slate-850 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors font-sans"
             />
             <button
               type="submit"
               disabled={loading || !prompt.trim()}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-[#050816] font-display font-bold text-sm hover:opacity-95 transition-opacity disabled:opacity-40 flex items-center gap-2 cursor-pointer shrink-0 shadow-[0_0_20px_rgba(0,255,170,0.4)]"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4AF37] to-emerald-400 text-black font-display font-extrabold text-sm hover:opacity-95 transition-opacity disabled:opacity-40 flex items-center gap-2 cursor-pointer shrink-0 shadow-[0_0_20px_rgba(212,175,55,0.4)]"
             >
-              <span>Query</span>
+              <span>Transmit</span>
               <Send className="w-4 h-4" />
             </button>
           </form>

@@ -6,28 +6,28 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Space Grotesk', sans-serif;
   
-  --color-space-black: #050816;
-  --color-midnight-navy: #0B1120;
-  --color-emerald-trading: #00FFAA;
-  --color-electric-blue: #00C8FF;
-  --color-gold-accent: #FFC857;
+  --color-space-black: #03050C;
+  --color-midnight-navy: #070B16;
+  --color-emerald-trading: #10B981;
+  --color-electric-blue: #059669;
+  --color-gold-accent: #D4AF37;
 }
 
 :root {
-  --clr: #00FFAA;
+  --clr: #D4AF37;
 }
 
 .dark {
-  --clr: #00FFAA;
+  --clr: #D4AF37;
 }
 
 body {
-  background-color: #050816;
+  background-color: #03050C;
   color: #F8FAFC;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  selection-background-color: #00FFAA;
-  selection-color: #050816;
+  selection-background-color: #D4AF37;
+  selection-color: #03050C;
 }
 
 /* Custom Cyberpunk Scrollbar */
@@ -36,15 +36,15 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050816;
+  background: #03050C;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0B1120;
-  border: 1px solid rgba(0, 255, 170, 0.3);
+  background: #070B16;
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 170, 0.6);
+  background: rgba(212, 175, 55, 0.6);
 }
 
 /* Glassmorphism Utilities */
@@ -77,9 +77,9 @@ body {
 
 .loader {
   --duration: 3s;
-  --primary: #00FFAA;
-  --primary-light: #00C8FF;
-  --primary-rgba: rgba(0, 255, 170, 0);
+  --primary: #D4AF37;
+  --primary-light: #10B981;
+  --primary-rgba: rgba(212, 175, 55, 0);
   width: 200px;
   height: 320px;
   position: relative;
@@ -122,22 +122,22 @@ body {
 
 .loader .box > div:nth-child(1) {
   --z: 1;
-  background: #00FFAA;
+  background: #D4AF37;
 }
 .loader .box > div:nth-child(2) {
   --rotateY: 90;
   --z: 1;
-  background: #00d68f;
+  background: #AA7C11;
 }
 .loader .box > div:nth-child(3) {
   --rotateY: 180;
   --z: 1;
-  background: #00b377;
+  background: #8A640F;
 }
 .loader .box > div:nth-child(4) {
   --rotateX: 90;
   --z: 1;
-  background: #00C8FF;
+  background: #10B981;
 }
 
 .loader .box0 {
@@ -239,8 +239,8 @@ body {
 .loader .ground > div {
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(0, 255, 170, 0.25) 0%, rgba(5, 8, 22, 0) 70%);
-  border: 1px dashed rgba(0, 255, 170, 0.3);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(3, 5, 12, 0) 70%);
+  border: 1px dashed rgba(212, 175, 55, 0.3);
   transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
   animation: ground var(--duration) infinite;
 }

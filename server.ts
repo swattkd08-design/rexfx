@@ -30,31 +30,30 @@ async function startServer() {
 
   // API health check
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", service: "AEX Quantum Apex Workstation Server" });
+    res.json({ status: "ok", service: "Vidollar Sovereign Advisory Workstation Server" });
   });
 
-  // Live Crypto Prices Simulation API (Returns institutional synthetic live ticks)
+  // Live Forex Ticker Simulation API (Returns institutional synthetic live ticks)
   app.get("/api/market-tickers", (req, res) => {
     const time = Date.now();
-    const btcNoise = Math.sin(time / 2000) * 120 + (Math.random() - 0.5) * 45;
-    const ethNoise = Math.cos(time / 1800) * 45 + (Math.random() - 0.5) * 12;
-    const solNoise = Math.sin(time / 1500) * 8 + (Math.random() - 0.5) * 3;
+    const goldNoise = Math.sin(time / 2000) * 4.5 + (Math.random() - 0.5) * 1.2;
+    const gbpNoise = Math.cos(time / 1800) * 0.0015 + (Math.random() - 0.5) * 0.0004;
+    const eurNoise = Math.sin(time / 1500) * 0.0011 + (Math.random() - 0.5) * 0.0003;
+    const jpyNoise = Math.cos(time / 1600) * 0.12 + (Math.random() - 0.5) * 0.04;
     
     res.json({
       timestamp: time,
       tickers: [
-        { symbol: "BTC/USDT", name: "Bitcoin", price: 98450.20 + btcNoise, change24h: 4.82, volume24h: "42.8B", high24h: 99120.00, low24h: 94210.50 },
-        { symbol: "ETH/USDT", name: "Ethereum", price: 3420.80 + ethNoise, change24h: 6.15, volume24h: "21.4B", high24h: 3495.00, low24h: 3180.20 },
-        { symbol: "SOL/USDT", name: "Solana", price: 218.45 + solNoise, change24h: 12.40, volume24h: "8.9B", high24h: 224.80, low24h: 191.10 },
-        { symbol: "SUI/USDT", name: "Sui Network", price: 3.82 + (Math.random() - 0.5)*0.08, change24h: 18.90, volume24h: "2.1B", high24h: 3.98, low24h: 3.10 },
-        { symbol: "RENDER/USDT", name: "Render", price: 11.45 + (Math.random() - 0.5)*0.2, change24h: 9.45, volume24h: "890M", high24h: 11.90, low24h: 10.15 },
-        { symbol: "AVAX/USDT", name: "Avalanche", price: 42.10 + (Math.random() - 0.5)*0.5, change24h: -1.20, volume24h: "650M", high24h: 44.20, low24h: 41.05 }
+        { symbol: "XAU/USD", name: "Gold Spot vs Dollar", price: 2342.10 + goldNoise, change24h: 1.14, volume24h: "85K Lots", high24h: 2365.80, low24h: 2321.40 },
+        { symbol: "GBP/USD", name: "British Pound vs Dollar", price: 1.26420 + gbpNoise, change24h: 0.34, volume24h: "42K Lots", high24h: 1.26950, low24h: 1.25840 },
+        { symbol: "EUR/USD", name: "Euro vs Dollar", price: 1.08210 + eurNoise, change24h: -0.18, volume24h: "68K Lots", high24h: 1.08850, low24h: 1.07920 },
+        { symbol: "USD/JPY", name: "US Dollar vs Yen", price: 158.200 + jpyNoise, change24h: -0.45, volume24h: "39K Lots", high24h: 159.120, low24h: 157.950 }
       ],
-      sentiment: { score: 82, label: "Extreme Greed", dominanceBTC: 58.4, totalMarketCap: "3.42T", gasGwei: 16 }
+      sentiment: { score: 88, label: "Extreme Bullish Gold", dominanceDXY: 104.2, totalVolumeLots: "234K Lots", spreadAvg: "0.2 Pips" }
     });
   });
 
-  // Gemini AI Market Oracle Endpoint
+  // Gemini AI Market Oracle Endpoint for Vidollar
   app.post("/api/ai-oracle", async (req, res) => {
     const { prompt, preset } = req.body;
     const client = getAIClient();
@@ -65,19 +64,19 @@ async function startServer() {
       return res.json({
         success: true,
         isSimulated: true,
-        analysis: `[QUANTUM SENTINEL AI // INSTITUTIONAL ADVISORY MODE]\n\n**Executive Market Assessment:**\nBased on current orderbook depth and gamma exposure across major derivatives desks, Bitcoin ($98.4k) is consolidating in a high-liquidity accumulation pocket.\n\n**Alpha Strategy Recommendation:**\n• **Core Allocation:** Maintain 65% spot exposure anchored by BTC & ETH perps hedged with delta-neutral funding rate arb (yielding ~18.4% APR).\n• **Asymmetric Play:** Rotate 15% profits into high-beta L1 ecosystem tokens (SUI, SOL) showing relative strength on the 4H DOM.\n• **Risk Guardrails:** Hard stop-loss triggers mapped at $94,200 (liquidity sweep zone). Target breakout expansion towards $108,000.\n\n*(Note: Configure GEMINI_API_KEY in AI Studio Settings for live LLM market inference.)*`
+        analysis: `[VIDOLLAR AI ORACLE // ADVISORY CO-LINK ACTIVATED]\n\n**Executive Market Assessment:**\nOn Gold Spot (XAU/USD), a significant retail buy-side liquidity pool near $2,365 has been swept. Higher timeframe market structure remains bullish but mid-timeframe charts reveal an unmitigated 4-Hour Fair Value Gap (FVG) and orderblock resting between $2,330 - $2,335.\n\n**Strategic Recommendation:**\n• **Core Execution:** Do not chase current breakouts. Set sniper limit buy orders inside the premium discount zone ($2,332.50) aligned with London session open liquidity.\n• **Dynamic Risk Management:** Place hard stop-losses at $2,324.50 (below the breaker block level). Target a structural sweep expansion towards new swing highs near $2,385.\n• **Session bias:** Focus exclusively on the London/New York session open overlap (13:00 - 16:00 UTC) for peak lot volatility delivery.\n\n*(Note: Configure GEMINI_API_KEY in Settings to enable live, real-time Gemini LLM analysis.)*`
       });
     }
 
     try {
-      const systemInstruction = `You are "AEX QUANTUM MARKET SENTINEL", an institutional-grade AI crypto trading oracle and quantitative risk advisor created for an elite crypto portfolio managing $45M+ capital.
-Your tone is sophisticated, razor-sharp, analytical (like Bloomberg Terminal meets elite fintech hedge fund quant).
-Use bullet points, bold key financial metrics, and quantitative reasoning (orderflow, liquidity sweeps, open interest, Funding rates, SMC concepts).
-Keep responses punchy, concise (around 150-250 words maximum), and formatted beautifully in Markdown.`;
+      const systemInstruction = `You are "VIDOLLAR AI ORACLE", an institutional-grade Forex trading advisor and precious metal specialist created for Vidollar's private sovereign workspace.
+Your tone is highly professional, razor-sharp, analytical, and authoritative (Bloomberg meets elite institutional prop trading advisor).
+Use bullet points, bold key metrics, and speak explicitly in Smart Money Concepts (SMC), Fair Value Gaps (FVG), orderblocks, session Killzones, lot sizing, and risk-to-reward matrices.
+Keep responses concise (around 150-250 words maximum) and formatted beautifully in Markdown. Do not talk about cryptocurrency unless specifically asked. Focus heavily on Gold (XAU/USD) and major currency pairs.`;
 
       const response = await client.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: prompt ||preset || "Give an institutional market overview.",
+        contents: prompt || preset || "Provide an institutional Gold and Forex outlook.",
         config: {
           systemInstruction,
           temperature: 0.4,
@@ -98,13 +97,13 @@ Keep responses punchy, concise (around 150-250 words maximum), and formatted bea
     }
   });
 
-  // Gemini AI Strategy Backtest Simulation Endpoint
+  // Gemini AI Strategy Backtest Simulation Endpoint for Vidollar
   app.post("/api/backtest", async (req, res) => {
-    const { strategyTitle = "Proprietary Alpha Strategy", strategyCategory = "Quantitative", winRate = "84.2%", sharpeRatio = "4.10", description = "" } = req.body;
+    const { strategyTitle = "Proprietary SMC Strategy", strategyCategory = "Quantitative", winRate = "88.4%", sharpeRatio = "4.35", description = "" } = req.body;
     const client = getAIClient();
 
     const getFallbackData = () => {
-      const baseReturn = parseFloat(winRate) > 80 ? 148.5 : 92.4;
+      const baseReturn = parseFloat(winRate) > 85 ? 245.6 : 142.8;
       return {
         success: true,
         isSimulated: true,
@@ -114,34 +113,34 @@ Keep responses punchy, concise (around 150-250 words maximum), and formatted bea
           initialCapitalUsd: 100000,
           finalCapitalUsd: Math.round(100000 * (1 + baseReturn / 100)),
           totalReturnPct: `+${baseReturn}%`,
-          maxDrawdownPct: "-3.42%",
-          winRatePct: winRate || "82.5%",
-          sharpeRatio: sharpeRatio || "4.12",
-          sortinoRatio: "7.45",
-          profitFactor: "3.98",
-          totalTradesExecuted: 1342,
+          maxDrawdownPct: "-3.80%",
+          winRatePct: winRate || "88.4%",
+          sharpeRatio: sharpeRatio || "4.35",
+          sortinoRatio: "8.12",
+          profitFactor: "4.12",
+          totalTradesExecuted: 840,
           alphaVsBtcPct: `+${(baseReturn - 78.2).toFixed(1)}%`,
-          executiveSummary: `### Quantitative Backtest Audit // ${strategyTitle}\n\n**Performance Attribution:**\nThe algorithmic engine navigated 2024 macro shifts with zero directional bias. During the sharp Q3 unwinding event, delta-neutral funding rate arbitrage captured peak annualized yield while spot gamma hedging suppressed drawdown to -3.42%.\n\n**Key Regime Observations:**\n* **High Volatility Expansion (Q1/Q4):** Captured 84% of upside momentum via high-frequency orderflow imbalance sweeps.\n* **Choppy Consolidation (Q2/Q3):** Compounded steady basis yield while retail long positions suffered heavy funding decay.\n* **Execution Quality:** Average slippage remained under 0.8 bps across $42M simulated volume.\n\n*(Note: Configure GEMINI_API_KEY in AI Studio Settings for live LLM dynamic backtest simulations.)*`,
+          executiveSummary: `### Smart Money Concepts Backtest Audit // ${strategyTitle}\n\n**Performance Attribution:**\nThe strategy successfully captured peak intraday trends during high impact news releases. By aligning limit orders inside high-timeframe Fair Value Gaps (FVG) and utilizing London session opens (Killzones), the system achieved sub-pip entry slippage and locked in premium compound gains.\n\n**Key Regime Observations:**\n* **Trend Expansions (Q1/Q4):** Captured 91.5% of Gold Spot bullish waves via precise swing sweeps.\n* **Session Choppiness (Q2/Q3):** Bypassed retail traps by sitting on hands during Asian consolidation ranges, maintaining capital preservation.\n* **Execution Precision:** Average trade drawdown remained under 4.2 pips with tight, non-negotiable stop-losses.\n\n*(Note: Configure GEMINI_API_KEY in AI Studio Settings to enable dynamic backtest generation via the Gemini API.)*`,
           monthlyPerformance: [
-            { month: "Jan 24", equity: 104500, btcBenchmark: 102100, returnPct: "+4.5%" },
-            { month: "Feb 24", equity: 114200, btcBenchmark: 110500, returnPct: "+9.3%" },
-            { month: "Mar 24", equity: 125800, btcBenchmark: 124000, returnPct: "+10.2%" },
-            { month: "Apr 24", equity: 129400, btcBenchmark: 116000, returnPct: "+2.9%" },
-            { month: "May 24", equity: 138100, btcBenchmark: 125000, returnPct: "+6.7%" },
-            { month: "Jun 24", equity: 145200, btcBenchmark: 118000, returnPct: "+5.1%" },
-            { month: "Jul 24", equity: 154800, btcBenchmark: 130000, returnPct: "+6.6%" },
-            { month: "Aug 24", equity: 161200, btcBenchmark: 121000, returnPct: "+4.1%" },
-            { month: "Sep 24", equity: 172500, btcBenchmark: 135000, returnPct: "+7.0%" },
-            { month: "Oct 24", equity: 191000, btcBenchmark: 154000, returnPct: "+10.7%" },
-            { month: "Nov 24", equity: 224000, btcBenchmark: 182000, returnPct: "+17.3%" },
-            { month: "Dec 24", equity: Math.round(100000 * (1 + baseReturn / 100)), btcBenchmark: 178200, returnPct: "+11.0%" }
+            { month: "Jan 24", equity: 106500, btcBenchmark: 102100, returnPct: "+6.5%" },
+            { month: "Feb 24", equity: 118400, btcBenchmark: 110500, returnPct: "+11.1%" },
+            { month: "Mar 24", equity: 129800, btcBenchmark: 124000, returnPct: "+9.6%" },
+            { month: "Apr 24", equity: 135400, btcBenchmark: 116000, returnPct: "+4.3%" },
+            { month: "May 24", equity: 148100, btcBenchmark: 125000, returnPct: "+9.3%" },
+            { month: "Jun 24", equity: 154200, btcBenchmark: 118000, returnPct: "+4.1%" },
+            { month: "Jul 24", equity: 168800, btcBenchmark: 130000, returnPct: "+9.4%" },
+            { month: "Aug 24", equity: 175200, btcBenchmark: 121000, returnPct: "+3.7%" },
+            { month: "Sep 24", equity: 191500, btcBenchmark: 135000, returnPct: "+9.3%" },
+            { month: "Oct 24", equity: 212000, btcBenchmark: 154000, returnPct: "+10.7%" },
+            { month: "Nov 24", equity: 228000, btcBenchmark: 182000, returnPct: "+7.5%" },
+            { month: "Dec 24", equity: Math.round(100000 * (1 + baseReturn / 100)), btcBenchmark: 178200, returnPct: "+14.6%" }
           ],
           simulatedRecentTrades: [
-            { timestamp: "2025-01-14 14:22 UTC", pair: "BTC/USDT Perp", type: "LONG BASIS ARB", entry: "$96,420", exit: "$98,110", pnlUsd: "+$4,820", roi: "+14.2%" },
-            { timestamp: "2025-01-13 09:15 UTC", pair: "SOL/USDT Perp", type: "SHORT LIQ SWEEP", entry: "$212.40", exit: "$204.80", pnlUsd: "+$3,150", roi: "+22.4%" },
-            { timestamp: "2025-01-12 18:40 UTC", pair: "ETH/USDT Perp", type: "DELTA HEDGE", entry: "$3,380", exit: "$3,410", pnlUsd: "+$1,220", roi: "+8.5%" },
-            { timestamp: "2025-01-11 04:10 UTC", pair: "SUI/USDT Perp", type: "MOMENTUM LONG", entry: "$3.45", exit: "$3.82", pnlUsd: "+$6,400", roi: "+34.0%" },
-            { timestamp: "2025-01-10 11:30 UTC", pair: "BTC/USDT Perp", type: "LONG BASIS ARB", entry: "$94,100", exit: "$93,800", pnlUsd: "-$850", roi: "-2.1%" }
+            { timestamp: "2025-01-14 14:22 UTC", pair: "XAU/USD (Gold Spot)", type: "BUY LIMIT (SMC)", entry: "$2342.10", exit: "$2365.80", pnlUsd: "+$354,200", roi: "+23.7%" },
+            { timestamp: "2025-01-13 09:15 UTC", pair: "GBP/USD (Cable)", type: "SELL BLOCK (Orderblock)", entry: "1.26420", exit: "1.25840", pnlUsd: "+$82,400", roi: "+4.57%" },
+            { timestamp: "2025-01-12 18:40 UTC", pair: "EUR/USD (Fiber)", type: "BUY LIMIT (SMC)", entry: "1.08210", exit: "1.08750", pnlUsd: "+$118,800", roi: "+5.40%" },
+            { timestamp: "2025-01-11 04:10 UTC", pair: "USD/JPY (Ninja)", type: "SELL LIMIT (Breaker)", entry: "158.200", exit: "158.450", pnlUsd: "-$23,500", roi: "-1.58%" },
+            { timestamp: "2025-01-10 11:30 UTC", pair: "XAU/USD (Gold Spot)", type: "BUY TARGET (Liquidity)", entry: "$2321.40", exit: "Active", pnlUsd: "+$189,500", roi: "+4.74% Float" }
           ]
         }
       };
@@ -153,34 +152,34 @@ Keep responses punchy, concise (around 150-250 words maximum), and formatted bea
     }
 
     try {
-      const prompt = `Run a synthetic 12-month quantitative trading backtest simulation for this crypto strategy:
+      const prompt = `Run a synthetic 12-month Forex/SMC trading backtest simulation for this strategy:
 Title: ${strategyTitle}
 Category: ${strategyCategory}
 Claimed Win Rate: ${winRate}
-Claimed Sharpe: ${sharpeRatio}
+Claimed Sharpe Ratio: ${sharpeRatio}
 Description: ${description}
 
-Generate a realistic historical performance simulation assuming an initial capital of $100,000 USD across Jan 2024 to Jan 2025.
+Generate a realistic historical performance simulation assuming an initial capital of $100,000 USD across Jan 2024 to Jan 2025 on Gold and major Forex pairs.
 Return ONLY valid JSON matching this exact structure:
 {
   "strategyTitle": "${strategyTitle}",
   "period": "Jan 2024 - Jan 2025 (12 Months)",
   "initialCapitalUsd": 100000,
-  "finalCapitalUsd": 245000,
-  "totalReturnPct": "+145.0%",
-  "maxDrawdownPct": "-3.8%",
+  "finalCapitalUsd": 345600,
+  "totalReturnPct": "+245.6%",
+  "maxDrawdownPct": "-3.80%",
   "winRatePct": "${winRate}",
   "sharpeRatio": "${sharpeRatio}",
-  "sortinoRatio": "7.20",
-  "profitFactor": "3.90",
-  "totalTradesExecuted": 1280,
-  "alphaVsBtcPct": "+66.8%",
-  "executiveSummary": "### Quantitative Backtest Audit // ${strategyTitle}\\n\\n**Performance Attribution:**\\nThe engine captured alpha during volatility expansion...",
+  "sortinoRatio": "8.12",
+  "profitFactor": "4.12",
+  "totalTradesExecuted": 840,
+  "alphaVsBtcPct": "+167.4%",
+  "executiveSummary": "### SMC Backtest Audit // ${strategyTitle}\\n\\n**Performance Attribution:**\\nThe engine captured major liquidity waves on XAU/USD...",
   "monthlyPerformance": [
-    { "month": "Jan 24", "equity": 104500, "btcBenchmark": 102000, "returnPct": "+4.5%" }
+    { "month": "Jan 24", "equity": 106500, "btcBenchmark": 102100, "returnPct": "+6.5%" }
   ],
   "simulatedRecentTrades": [
-    { "timestamp": "2025-01-14 14:22 UTC", "pair": "BTC/USDT Perp", "type": "LONG BASIS ARB", "entry": "$96,420", "exit": "$98,110", "pnlUsd": "+$4,820", "roi": "+14.2%" }
+    { "timestamp": "2025-01-14 14:22 UTC", "pair": "XAU/USD (Gold Spot)", "type": "BUY LIMIT (SMC)", "entry": "$2342.10", "exit": "$2365.80", "pnlUsd": "+$354,200", "roi": "+23.7%" }
   ]
 }
 Ensure monthlyPerformance has exactly 12 items (Jan 24 to Dec 24) with rising equity curve starting at 100000. Ensure simulatedRecentTrades has 5 items.`;
@@ -233,7 +232,7 @@ Ensure monthlyPerformance has exactly 12 items (Jan 24 to Dec 24) with rising eq
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Apex Crypto Workstation Server running on http://localhost:${PORT}`);
+    console.log(`Vidollar Server running on http://localhost:${PORT}`);
   });
 }
 
