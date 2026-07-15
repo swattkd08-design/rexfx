@@ -41,7 +41,7 @@ export default function TradingTimeline({ isFriendly = false }: TradingTimelineP
     },
     {
       year: "2024",
-      title: "Launching Vidollar",
+      title: "Launching Asam FX",
       description: "Incorporated my private trading firm. Launched a highly-rated signals channel and began managing capital for private families and high-net-worth clients.",
       tag: "Phase IV"
     },
@@ -64,7 +64,7 @@ export default function TradingTimeline({ isFriendly = false }: TradingTimelineP
           {isFriendly ? "MY MILESTONES & HISTORY" : "THE ROAD TO EDGE"}
         </span>
         <h2 className="text-4xl sm:text-5xl font-display font-bold text-white mt-5 tracking-tight">
-          Vidollar <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-emerald-400">{isFriendly ? "My Trading Journey" : "Trading Journey"}</span>
+          Asam FX <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-emerald-400">{isFriendly ? "My Trading Journey" : "Trading Journey"}</span>
         </h2>
         <p className="text-slate-400 mt-4 text-sm sm:text-base font-sans">
           {isFriendly 

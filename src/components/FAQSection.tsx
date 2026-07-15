@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { VIDOLLAR_FAQS } from '../data/mockData';
+import { ASAM_FX_FAQS } from '../data/mockData';
 import { sfx } from '../utils/audio';
 import { ChevronDown, HelpCircle, ArrowRight, Sparkles } from 'lucide-react';
 
@@ -54,7 +54,7 @@ export default function FAQSection({ isFriendly = false }: FAQSectionProps) {
     }
   ];
 
-  const currentFAQs = isFriendly ? friendlyFAQs : VIDOLLAR_FAQS;
+  const currentFAQs = isFriendly ? friendlyFAQs : ASAM_FX_FAQS;
 
   return (
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
@@ -124,7 +124,7 @@ export default function FAQSection({ isFriendly = false }: FAQSectionProps) {
                       href="#contact" 
                       className="text-[#D4AF37] hover:underline flex items-center gap-1 font-bold"
                     >
-                      <span>{isFriendly ? "Get in touch with Vidollar" : "Inquire further"}</span>
+                      <span>{isFriendly ? "Get in touch with Asam FX" : "Inquire further"}</span>
                       <ArrowRight className="w-3 h-3" />
                     </a>
                   </div>

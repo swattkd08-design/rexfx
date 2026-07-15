@@ -1,5 +1,5 @@
 import React from 'react';
-import { VIDOLLAR_CERTIFICATIONS } from '../data/mockData';
+import { ASAM_FX_CERTIFICATIONS } from '../data/mockData';
 import { sfx } from '../utils/audio';
 import { Award, ShieldCheck, CheckCircle2, Trophy, ArrowRight } from 'lucide-react';
 
@@ -31,7 +31,7 @@ export default function Certifications() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {VIDOLLAR_CERTIFICATIONS.map((cert) => (
+        {ASAM_FX_CERTIFICATIONS.map((cert) => (
           <div
             key={cert.id}
             onMouseEnter={() => sfx.playHover()}

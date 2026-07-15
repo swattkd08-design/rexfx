@@ -36,7 +36,7 @@ export default function TradingGallery({ isFriendly = false }: TradingGalleryPro
         <p className="text-slate-400 text-sm font-mono max-w-sm mt-4 md:mt-0 leading-relaxed">
           {isFriendly 
             ? "Take a look at my real-world trading setups, physical gold reserves, and study desks. I believe in complete transparency."
-            : "A glimpse into the high-end institutional workstation, Gold reserves, and market structure analysis nodes of Vidollar."
+            : "A glimpse into the high-end institutional workstation, Gold reserves, and market structure analysis nodes of Asam FX."
           }
         </p>
       </div>
@@ -137,7 +137,7 @@ export default function TradingGallery({ isFriendly = false }: TradingGalleryPro
                 </div>
                 <div>
                   <span className="text-white font-bold block">VERIFIED SOURCE</span>
-                  <span>Vidollar Private Archive</span>
+                  <span>Asam FX Private Archive</span>
                 </div>
               </div>
             </div>

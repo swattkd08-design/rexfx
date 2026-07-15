@@ -127,7 +127,7 @@ export default function App() {
 
             <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
               {isFriendly 
-                ? "Welcome! I am Vidollar. I trade currency and gold. This platform acts as a educational portfolio to show you how professional markets work, explaining rules and risk control in plain, easy-to-understand terms."
+                ? "Welcome! I am Asam FX. I trade currency and gold. This platform acts as a educational portfolio to show you how professional markets work, explaining rules and risk control in plain, easy-to-understand terms."
                 : "Welcome to my private digital trading workstation. Fusing sub-millisecond liquidity routing sweeps with interbank orderflow and high-precision execution to compound institutional wealth."
               }
             </p>
@@ -148,7 +148,7 @@ export default function App() {
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl glass-card border border-[#D4AF37]/40 hover:border-[#D4AF37] text-[#D4AF37] font-bold text-sm hover:bg-[#D4AF37]/10 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
                 <Cpu className="w-4 h-4 text-[#D4AF37] animate-pulse" />
-                <span>{isFriendly ? "ASK QUESTIONS TO OUR AI ASSISTANT" : "QUERY VIDOLLAR AI ORACLE"}</span>
+                <span>{isFriendly ? "ASK QUESTIONS TO OUR AI ASSISTANT" : "QUERY ASAM FX AI ORACLE"}</span>
               </button>
             </div>
 
@@ -199,8 +199,8 @@ export default function App() {
               {/* The Portrait Image */}
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-950 relative">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY7xV3FIEAdr7JlKSWljzdxIockT-JXDt71LraqKB_tQ&s=10"
-                  alt="Vidollar - Sovereign Owner & Chief Advisory"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKyD3SiDFZJNAuBO1bQdZMDG2azzG1Yans2ZZbytFZbQ&s=10"
+                  alt="Asam FX - Sovereign Owner & Chief Advisory"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
@@ -224,7 +224,7 @@ export default function App() {
                       WEBSITE OWNER & FOUNDER
                     </span>
                     <h3 className="text-2xl font-display font-black text-white tracking-wider">
-                      VIDOLLAR
+                      ASAM FX
                     </h3>
                     <p className="text-xs text-slate-400 font-sans mt-0.5">
                       {isFriendly 

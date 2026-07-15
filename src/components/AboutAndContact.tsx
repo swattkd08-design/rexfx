@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FOREX_TESTIMONIALS, VIDOLLAR_STATS } from '../data/mockData';
+import { FOREX_TESTIMONIALS, ASAM_FX_STATS } from '../data/mockData';
 import { sfx } from '../utils/audio';
 import { 
   ShieldCheck, 
@@ -72,8 +72,8 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
             <div className="glass-panel p-3 rounded-[36px] border border-[#D4AF37]/30 bg-black/40 relative group shadow-[0_0_60px_rgba(212,175,55,0.15)]">
               <div className="aspect-[4/5] rounded-[28px] overflow-hidden bg-[#0A0E1A] relative">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkdtEyJl2G43i96NXeizfcePrU0tl4PB5pY0lOEwhokA&s=10"
-                  alt="Vidollar Professional Trader Portrait"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgb7_7IzWz0DeYy30qpemebmWgIZOjpC3LU1NPpuYrAQ&s=10"
+                  alt="Asam FX Professional Trader Portrait"
                   className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
                 {/* Golden Radial Shade overlay */}
@@ -85,7 +85,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-[#D4AF37]" /> {isFriendly ? "VERIFIED TRADER" : "PRIVATE DESK"}
                     </span>
-                    <span>ID: #VIDOLLAR-01</span>
+                    <span>ID: #ASAM-FX-01</span>
                   </div>
                   <p className="text-slate-300 text-[11px] leading-relaxed">
                     {isFriendly 
@@ -105,7 +105,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                 {isFriendly ? "A PERSONAL NOTE" : "THE TRADING ARCHITECT"}
               </span>
               <h2 className="text-4xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
-                About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-yellow-200 to-emerald-400">Vidollar</span>
+                About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-yellow-200 to-emerald-400">Asam FX</span>
               </h2>
             </div>
 
@@ -119,14 +119,14 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
             <div className="text-slate-400 text-sm sm:text-base space-y-4 leading-relaxed font-sans">
               <p>
                 {isFriendly 
-                  ? "With over 8 years of experience reading charts, Vidollar has built a clear and simple system based on following real-world market movements."
-                  : "With over 8 years of active screen-time navigating the foreign exchange and precious metal desks, Vidollar has established a pristine edge anchored in Smart Money Concepts (SMC) and Price Action."
+                  ? "With over 8 years of experience reading charts, Asam FX has built a clear and simple system based on following real-world market movements."
+                  : "With over 8 years of active screen-time navigating the foreign exchange and precious metal desks, Asam FX has established a pristine edge anchored in Smart Money Concepts (SMC) and Price Action."
                 }
               </p>
               <p>
                 {isFriendly 
-                  ? "Vidollar has successfully passed professional trading challenges, managed private client assets, and coached thousands of everyday beginners to help them trade safely."
-                  : "Vidollar has successfully passed multiple top-tier institutional prop challenges, securing substantial active capital and mentoring thousands of aspiring retail traders to achieve professional status."
+                  ? "Asam FX has successfully passed professional trading challenges, managed private client assets, and coached thousands of everyday beginners to help them trade safely."
+                  : "Asam FX has successfully passed multiple top-tier institutional prop challenges, securing substantial active capital and mentoring thousands of aspiring retail traders to achieve professional status."
                 }
               </p>
             </div>
@@ -177,19 +177,19 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-800/80 font-mono">
               <div className="bg-[#0B1120]/40 p-4 rounded-2xl border border-slate-800/80 hover:border-[#D4AF37]/20 transition-all">
                 <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isFriendly ? "TRADES RECORDED" : "TRADES EXECUTED"}</span>
-                <span className="text-2xl font-bold text-[#D4AF37] mt-1.5 block">{VIDOLLAR_STATS.tradesExecuted}</span>
+                <span className="text-2xl font-bold text-[#D4AF37] mt-1.5 block">{ASAM_FX_STATS.tradesExecuted}</span>
               </div>
               <div className="bg-[#0B1120]/40 p-4 rounded-2xl border border-slate-800/80 hover:border-emerald-400/20 transition-all">
                 <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isFriendly ? "YEARS OF EXPERIENCE" : "YEARS TRADING"}</span>
-                <span className="text-2xl font-bold text-emerald-400 mt-1.5 block">{VIDOLLAR_STATS.yearsTrading}</span>
+                <span className="text-2xl font-bold text-emerald-400 mt-1.5 block">{ASAM_FX_STATS.yearsTrading}</span>
               </div>
               <div className="bg-[#0B1120]/40 p-4 rounded-2xl border border-slate-800/80 hover:border-[#D4AF37]/20 transition-all">
                 <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isFriendly ? "STUDENTS HELPED" : "HAPPY CLIENTS"}</span>
-                <span className="text-2xl font-bold text-[#D4AF37] mt-1.5 block">{VIDOLLAR_STATS.happyClients}</span>
+                <span className="text-2xl font-bold text-[#D4AF37] mt-1.5 block">{ASAM_FX_STATS.happyClients}</span>
               </div>
               <div className="bg-[#0B1120]/40 p-4 rounded-2xl border border-slate-800/80 hover:border-emerald-400/20 transition-all">
                 <span className="text-[10px] text-slate-500 block uppercase tracking-wider">{isFriendly ? "WIN ACCURACY" : "ACCURACY RATE"}</span>
-                <span className="text-2xl font-bold text-emerald-400 mt-1.5 block">{VIDOLLAR_STATS.tradingAccuracy}</span>
+                <span className="text-2xl font-bold text-emerald-400 mt-1.5 block">{ASAM_FX_STATS.tradingAccuracy}</span>
               </div>
             </div>
 
@@ -310,7 +310,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                 >
                   <span className="flex items-center gap-3">
                     <MessageSquare className="w-5 h-5 text-emerald-400" />
-                    <span>TELEGRAM OTC DESK // @Vidollar_Desk</span>
+                    <span>TELEGRAM OTC DESK // @AsamFX_Desk</span>
                   </span>
                   <ExternalLink className="w-4 h-4 opacity-40 group-hover:opacity-100" />
                 </a>
@@ -340,7 +340,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                 >
                   <span className="flex items-center gap-3">
                     <Instagram className="w-5 h-5 text-pink-500" />
-                    <span>INSTAGRAM TRADING LIFE // @vidollar</span>
+                    <span>INSTAGRAM TRADING LIFE // @asamfx</span>
                   </span>
                   <ExternalLink className="w-4 h-4 opacity-40 group-hover:opacity-100" />
                 </a>
@@ -351,7 +351,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                     <Mail className="w-5 h-5 text-[#D4AF37]" />
                     <div>
                       <span className="text-[9px] text-slate-500 block">EMAIL SUPPORT</span>
-                      <span className="text-slate-300 font-bold block text-[11px] truncate">support@vidollar.com</span>
+                      <span className="text-slate-300 font-bold block text-[11px] truncate font-sans">support@asamfx.com</span>
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-black/40 border border-slate-800/80 flex items-center gap-3">
@@ -368,7 +368,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
               {/* Premium Google Map Iframe Card (Custom styled inside luxury frame) */}
               <div className="rounded-2xl overflow-hidden border border-slate-800/90 h-[150px] relative group">
                 <iframe 
-                  title="Vidollar London Office Location Map"
+                  title="Asam FX London Office Location Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.7281065701!2d-0.24168142340898517!3d51.52877184091605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" 
                   className="w-full h-full border-0 filter grayscale invert contrast-125 opacity-60 group-hover:opacity-80 transition-opacity" 
                   allowFullScreen={false} 
@@ -395,7 +395,7 @@ export default function AboutAndContact({ isFriendly = false }: AboutAndContactP
                   <p className="text-slate-400 text-sm max-w-md font-sans">
                     {isFriendly 
                       ? "Thank you! I have received your message. I or my support helper will reach out to you by email very soon (usually within a couple of hours)."
-                      : "Your trader blueprint portfolio dispatch has been registered. Vidollar or our private desk advisor will reach out via email or secure handles within 4 hours."
+                      : "Your trader blueprint portfolio dispatch has been registered. Asam FX or our private desk advisor will reach out via email or secure handles within 4 hours."
                     }
                   </p>
                   <button

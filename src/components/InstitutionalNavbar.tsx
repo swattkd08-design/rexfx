@@ -52,11 +52,11 @@ export default function InstitutionalNavbar({
         <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4AF37] to-emerald-400 p-[1px] shadow-[0_0_20px_rgba(212,175,55,0.3)]">
             <div className="w-full h-full bg-[#03050C] rounded-[11px] flex items-center justify-center text-[#D4AF37] font-display font-black text-xl group-hover:bg-transparent group-hover:text-black transition-colors">
-              V
+              A
             </div>
           </div>
           <div>
-            <span className="font-display font-extrabold text-white tracking-wider text-lg block">VIDO<span className="text-[#D4AF37]">LLAR</span></span>
+            <span className="font-display font-extrabold text-white tracking-wider text-lg block">ASAM <span className="text-[#D4AF37]">FX</span></span>
             <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block -mt-1">Sovereign Desk</span>
           </div>
         </a>
@@ -152,7 +152,7 @@ export default function InstitutionalNavbar({
               className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-[#D4AF37] to-emerald-400 text-black font-black flex items-center justify-center gap-2"
             >
               <Cpu className="w-4 h-4" />
-              <span>LAUNCH VIDOLLAR AI ORACLE</span>
+              <span>LAUNCH ASAM FX AI ORACLE</span>
             </button>
           </div>
         </div>

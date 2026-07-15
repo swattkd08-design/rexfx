@@ -30,7 +30,7 @@ async function startServer() {
 
   // API health check
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", service: "Vidollar Sovereign Advisory Workstation Server" });
+    res.json({ status: "ok", service: "Asam FX Sovereign Advisory Workstation Server" });
   });
 
   // Live Forex Ticker Simulation API (Returns institutional synthetic live ticks)
@@ -53,7 +53,7 @@ async function startServer() {
     });
   });
 
-  // Gemini AI Market Oracle Endpoint for Vidollar
+  // Gemini AI Market Oracle Endpoint for Asam FX
   app.post("/api/ai-oracle", async (req, res) => {
     const { prompt, preset } = req.body;
     const client = getAIClient();
@@ -64,12 +64,12 @@ async function startServer() {
       return res.json({
         success: true,
         isSimulated: true,
-        analysis: `[VIDOLLAR AI ORACLE // ADVISORY CO-LINK ACTIVATED]\n\n**Executive Market Assessment:**\nOn Gold Spot (XAU/USD), a significant retail buy-side liquidity pool near $2,365 has been swept. Higher timeframe market structure remains bullish but mid-timeframe charts reveal an unmitigated 4-Hour Fair Value Gap (FVG) and orderblock resting between $2,330 - $2,335.\n\n**Strategic Recommendation:**\n• **Core Execution:** Do not chase current breakouts. Set sniper limit buy orders inside the premium discount zone ($2,332.50) aligned with London session open liquidity.\n• **Dynamic Risk Management:** Place hard stop-losses at $2,324.50 (below the breaker block level). Target a structural sweep expansion towards new swing highs near $2,385.\n• **Session bias:** Focus exclusively on the London/New York session open overlap (13:00 - 16:00 UTC) for peak lot volatility delivery.\n\n*(Note: Configure GEMINI_API_KEY in Settings to enable live, real-time Gemini LLM analysis.)*`
+        analysis: `[ASAM FX AI ORACLE // ADVISORY CO-LINK ACTIVATED]\n\n**Executive Market Assessment:**\nOn Gold Spot (XAU/USD), a significant retail buy-side liquidity pool near $2,365 has been swept. Higher timeframe market structure remains bullish but mid-timeframe charts reveal an unmitigated 4-Hour Fair Value Gap (FVG) and orderblock resting between $2,330 - $2,335.\n\n**Strategic Recommendation:**\n• **Core Execution:** Do not chase current breakouts. Set sniper limit buy orders inside the premium discount zone ($2,332.50) aligned with London session open liquidity.\n• **Dynamic Risk Management:** Place hard stop-losses at $2,324.50 (below the breaker block level). Target a structural sweep expansion towards new swing highs near $2,385.\n• **Session bias:** Focus exclusively on the London/New York session open overlap (13:00 - 16:00 UTC) for peak lot volatility delivery.\n\n*(Note: Configure GEMINI_API_KEY in Settings to enable live, real-time Gemini LLM analysis.)*`
       });
     }
 
     try {
-      const systemInstruction = `You are "VIDOLLAR AI ORACLE", an institutional-grade Forex trading advisor and precious metal specialist created for Vidollar's private sovereign workspace.
+      const systemInstruction = `You are "ASAM FX AI ORACLE", an institutional-grade Forex trading advisor and precious metal specialist created for Asam FX's private sovereign workspace.
 Your tone is highly professional, razor-sharp, analytical, and authoritative (Bloomberg meets elite institutional prop trading advisor).
 Use bullet points, bold key metrics, and speak explicitly in Smart Money Concepts (SMC), Fair Value Gaps (FVG), orderblocks, session Killzones, lot sizing, and risk-to-reward matrices.
 Keep responses concise (around 150-250 words maximum) and formatted beautifully in Markdown. Do not talk about cryptocurrency unless specifically asked. Focus heavily on Gold (XAU/USD) and major currency pairs.`;
@@ -97,7 +97,7 @@ Keep responses concise (around 150-250 words maximum) and formatted beautifully 
     }
   });
 
-  // Gemini AI Strategy Backtest Simulation Endpoint for Vidollar
+  // Gemini AI Strategy Backtest Simulation Endpoint for Asam FX
   app.post("/api/backtest", async (req, res) => {
     const { strategyTitle = "Proprietary SMC Strategy", strategyCategory = "Quantitative", winRate = "88.4%", sharpeRatio = "4.35", description = "" } = req.body;
     const client = getAIClient();
@@ -232,7 +232,7 @@ Ensure monthlyPerformance has exactly 12 items (Jan 24 to Dec 24) with rising eq
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Vidollar Server running on http://localhost:${PORT}`);
+    console.log(`Asam FX Server running on http://localhost:${PORT}`);
   });
 }
 

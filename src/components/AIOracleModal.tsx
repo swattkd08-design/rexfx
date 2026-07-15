@@ -33,7 +33,7 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
       setResponse(json.analysis || "Unable to retrieve oracle synthesis.");
       sfx.playSuccess();
     } catch (err) {
-      setResponse("**Oracle Comm-Link Error:** Unable to reach Vidollar AI Advisory API. Check connection.");
+      setResponse("**Oracle Comm-Link Error:** Unable to reach Asam FX AI Advisory API. Check connection.");
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ export default function AIOracleModal({ isOpen, onClose }: { isOpen: boolean; on
             </div>
             <div>
               <h3 className="text-lg font-display font-bold text-white flex items-center gap-2">
-                VIDOLLAR AI MARKET ORACLE <Sparkles className="w-4 h-4 text-emerald-400" />
+                ASAM FX AI MARKET ORACLE <Sparkles className="w-4 h-4 text-emerald-400" />
               </h3>
               <p className="text-xs font-mono text-emerald-400">GEMINI 2.5 FOREX QUANT INTEL SENTINEL</p>
             </div>

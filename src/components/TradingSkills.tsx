@@ -73,7 +73,7 @@ export default function TradingSkills({ isFriendly = false }: { isFriendly?: boo
           {isFriendly ? "TRADING DISCIPLINE MADE EASY" : "DISCIPLINE & DOMINANCE"}
         </span>
         <h2 className="text-4xl sm:text-5xl font-display font-bold text-white mt-5 tracking-tight">
-          Vidollar <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-yellow-200 to-emerald-400">{isFriendly ? "Trading Specialties" : "Core Expertise"}</span>
+          Asam FX <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-yellow-200 to-emerald-400">{isFriendly ? "Trading Specialties" : "Core Expertise"}</span>
         </h2>
         <p className="text-slate-400 mt-4 text-base font-sans leading-relaxed">
           {isFriendly 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FOREX_ALLOCATIONS, FOREX_EXECUTED_TRADES, VIDOLLAR_STATS } from '../data/mockData';
+import { FOREX_ALLOCATIONS, FOREX_EXECUTED_TRADES, ASAM_FX_STATS } from '../data/mockData';
 import { sfx } from '../utils/audio';
 import { PieChart, ShieldAlert, CheckCircle2, TrendingUp, Layers, DollarSign, BarChart3, Clock, ArrowUpRight } from 'lucide-react';
 
@@ -31,7 +31,7 @@ export default function PortfolioDashboard() {
             <DollarSign className="w-16 h-16" />
           </div>
           <span className="text-xs font-mono text-slate-400 block uppercase">Sovereign Capital Pool</span>
-          <h3 className="text-3xl sm:text-4xl font-display font-black text-white mt-2 tracking-tight">{VIDOLLAR_STATS.totalProfit}</h3>
+          <h3 className="text-3xl sm:text-4xl font-display font-black text-white mt-2 tracking-tight">{ASAM_FX_STATS.totalProfit}</h3>
           <span className="text-[11px] font-mono text-emerald-400 flex items-center gap-1 mt-3.5 font-bold">
             <TrendingUp className="w-4 h-4" /> +$1.84M (+10.2%) this month
           </span>
@@ -43,7 +43,7 @@ export default function PortfolioDashboard() {
             <BarChart3 className="w-16 h-16" />
           </div>
           <span className="text-xs font-mono text-slate-400 block uppercase">Monthly Compound Return</span>
-          <h3 className="text-3xl sm:text-4xl font-display font-black text-emerald-400 mt-2 tracking-tight">{VIDOLLAR_STATS.monthlyGrowth}</h3>
+          <h3 className="text-3xl sm:text-4xl font-display font-black text-emerald-400 mt-2 tracking-tight">{ASAM_FX_STATS.monthlyGrowth}</h3>
           <span className="text-[11px] font-mono text-slate-400 block mt-3.5 font-semibold">Average Sharpe Ratio: 4.35</span>
         </div>
 
@@ -53,7 +53,7 @@ export default function PortfolioDashboard() {
             <CheckCircle2 className="w-16 h-16" />
           </div>
           <span className="text-xs font-mono text-slate-400 block uppercase">Execution accuracy</span>
-          <h3 className="text-3xl sm:text-4xl font-display font-black text-[#D4AF37] mt-2 tracking-tight">{VIDOLLAR_STATS.tradingAccuracy}</h3>
+          <h3 className="text-3xl sm:text-4xl font-display font-black text-[#D4AF37] mt-2 tracking-tight">{ASAM_FX_STATS.tradingAccuracy}</h3>
           <span className="text-[11px] font-mono text-slate-400 block mt-3.5 font-semibold">Based on 8,420+ logged trades</span>
         </div>
 
@@ -63,7 +63,7 @@ export default function PortfolioDashboard() {
             <ShieldAlert className="w-16 h-16" />
           </div>
           <span className="text-xs font-mono text-slate-400 block uppercase">Max Historical Drawdown</span>
-          <h3 className="text-3xl sm:text-4xl font-display font-black text-red-400 mt-2 tracking-tight">{VIDOLLAR_STATS.maxDrawdown}</h3>
+          <h3 className="text-3xl sm:text-4xl font-display font-black text-red-400 mt-2 tracking-tight">{ASAM_FX_STATS.maxDrawdown}</h3>
           <span className="text-[11px] font-mono text-slate-400 block mt-3.5 font-semibold">Strict 0.5% risk limit per block</span>
         </div>
 

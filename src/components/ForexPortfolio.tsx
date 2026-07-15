@@ -97,7 +97,7 @@ function TiltCard({ item, isFriendly = false }: TiltCardProps) {
         {/* Content body */}
         <div className="p-6 space-y-3">
           <span className="text-[10px] font-mono text-slate-500 uppercase block tracking-wider">
-            {isFriendly ? "📁 STUDY FILE" : "📁 VIDOLLAR ARCHIVE"} // {item.readTime}
+            {isFriendly ? "📁 STUDY FILE" : "📁 ASAM FX ARCHIVE"} // {item.readTime}
           </span>
           <h3 className="text-lg font-display font-bold text-white leading-snug hover:text-[#D4AF37] transition-colors">
             {item.title}

@@ -4,7 +4,7 @@ import { ShieldCheck, Cpu, Terminal } from 'lucide-react';
 
 export default function WebsiteLoadingScreen({ onLoaded }: { onLoaded: () => void }) {
   const [progress, setProgress] = useState(0);
-  const [statusText, setStatusText] = useState("BOOTSTRAPPING VIDOLLAR CORE DESK...");
+  const [statusText, setStatusText] = useState("BOOTSTRAPPING ASAM FX CORE DESK...");
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
@@ -53,9 +53,9 @@ export default function WebsiteLoadingScreen({ onLoaded }: { onLoaded: () => voi
       <div className="absolute top-8 left-8 right-8 flex items-center justify-between font-mono text-xs text-slate-500">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping" />
-          <span className="text-[#D4AF37] font-bold tracking-widest">VIDOLLAR v4.0</span>
+          <span className="text-[#D4AF37] font-bold tracking-widest">ASAM FX v4.0</span>
         </div>
-        <span>SECURE BOOT // ID: #VIDOLLAR-01</span>
+        <span>SECURE BOOT // ID: #ASAM-FX-01</span>
       </div>
 
       {/* Main Center Content Container */}
@@ -68,7 +68,7 @@ export default function WebsiteLoadingScreen({ onLoaded }: { onLoaded: () => voi
 
         {/* Brand Title */}
         <h1 className="text-4xl sm:text-5xl font-display font-black tracking-widest text-white text-center mb-1">
-          VIDO<span className="text-[#D4AF37]">LLAR</span>
+          ASAM <span className="text-[#D4AF37]">FX</span>
         </h1>
         <p className="text-[11px] font-mono text-emerald-400 uppercase tracking-widest mb-10">
           Sovereign Wealth Advisory
