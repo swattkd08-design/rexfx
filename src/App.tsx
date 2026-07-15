@@ -199,7 +199,7 @@ export default function App() {
               {/* The Portrait Image */}
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-950 relative">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKyD3SiDFZJNAuBO1bQdZMDG2azzG1Yans2ZZbytFZbQ&s=10"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgb7_7IzWz0DeYy30qpemebmWgIZOjpC3LU1NPpuYrAQ&s=10"
                   alt="Asam FX - Sovereign Owner & Chief Advisory"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-700"
